@@ -9,5 +9,5 @@ fi
 
 # Install Crossplane Helm chart
 echo "Installing Crossplane Helm chart..."
-helm repo add crossplane-stable https://charts.crossplane.io/stable --insecure-skip-tls-verify
+helm repo add crossplane-stable https://charts.crossplane.io/stable
 # helm install crossplane crossplane-stable/crossplane --namespace crossplane-system --create-namespace
