@@ -10,9 +10,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/salvamiguel/crossplane-iac-example
+    repoURL: https://github.com/salvamiguel/crossplane-iac-example #Change this repo to point wherever you Crossplane charts are or try the examples in the examples folder
     targetRevision: HEAD
-    path: infrastructure
+    path: infrastructure/default #Change this to your path or test the examples in infrastructure/exaples folder
   destination:
     namespace: default
     server: https://kubernetes.default.svc
