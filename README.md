@@ -137,7 +137,7 @@ spec:
 ```
 
 > [!WARNING] 
-> Before changing the contents of ``infrastructure/my-app.yaml`` please make sure that the ArgoCD app is fully destroyed (if was created before) and the AWS infrastructure has terminated/deleted successfully. If not, you may destroy your ArgoCD app but not the infrastructure created and still incour in costs.
+> Before changing the contents of ``infrastructure/my-app.yaml`` please make sure that the ArgoCD app is fully destroyed (if was created before) and the AWS infrastructure has terminated/deleted successfully. If not, you may destroy your ArgoCD app but not the infrastructure created and still incur in costs.
 > To delete the ArgoCD app run: 
 > ```bash
 > kubectl delete -f infrastructure/my-app.yaml
