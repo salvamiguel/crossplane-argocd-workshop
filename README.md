@@ -11,6 +11,7 @@ This repostory is meant to be a Workshop on how to create a full GitOps workflow
     - [Configure AWS Credentials](#configure-aws-credentials)
     - [Configuring my-app.yaml to point to one of the examples](#configuring-my-appyaml-to-point-to-one-of-the-examples)
     - [Creating a brand new ArgoCD app](#creating-a-brand-new-argocd-app)
+- [Acknowledgement](#acknowledgement)
 
 ---
 
@@ -19,12 +20,20 @@ We assume that the following tools are already installed on your system:
 - Docker
 - Minkube
 - Git
-
+  
 If you need help installing those please refer to the [REQUISITES.md](REQUISITES.md) file on this root folder.
 
+You also will need an AWS Account (AWS_ACCESS_KEY_ID + AWS_SECRET_ACCESS_KEY) with permissions for the services you are willing to deploy. 
+
+
 ## Architecture
+We are going to build a simple architecture to demostrate the power of GitOps. For demostration purposes, we will run our GitOps k8s cluster on your own local computer but this can also be deployed in the cloud.
+
 ![AWS Architecture](infrastructure/aws-arquitecture.png)
 
+On the local k8s cluster we will deploy ArgoCD that will manage Crossplane and Crossplane AWS providers (upbound). We will create a new ArgoCD application to track changes to an external git repository ([salvamiguel/crossplane-iac-example](https://github.com/salvamiguel/crossplane-iac-example)) were we will keep the Infrastructure definition in Chart deployments.
+
+Changes in this repository will trigger ArgoCD action to apply new Infrastructure changes into AWS using Crossplane and upbound provider. Underthehood, Crossplane and upbound use Terraform to apply these changes in you AWS Account. 
 
 ## Steps to install ArgoCD & Crossplane
 ### Install ArgoCD
@@ -128,16 +137,26 @@ spec:
 ```
 
 > [!WARNING] 
-> Before changing the contents of ``infrastructure/my-app.yaml`` please make sure that the ArgoCD app is fully destroyed (if was created before) and the AWS infrastructure has terminated/deleted successfully. If not you may destroy your ArgoCD app but not the infrastructure created.
-> 
+> Before changing the contents of ``infrastructure/my-app.yaml`` please make sure that the ArgoCD app is fully destroyed (if was created before) and the AWS infrastructure has terminated/deleted successfully. If not, you may destroy your ArgoCD app but not the infrastructure created and still incour in costs.
 > To delete the ArgoCD app run: 
 > ```bash
 > kubectl delete -f infrastructure/my-app.yaml
 > ```
 
 Please see the documentation for other examples [here](https://github.com/salvamiguel/crossplane-iac-example/blob/main/README.md).
+
 ### Creating a brand new ArgoCD app
 
+You can create a brand new ArgoCD app. You only need to duplicate the file ``infrastructure/my-app.yaml`` and change the ``repoURL``and ``path`` values to point to your own repository and folder path. 
+
+> [!NOTE]
+> Remember that files that define your architecture (``.yaml``) in your own repository should be under the path you provide and not in any subdirectory as ArgoCD will not pick them.
+
+
+# Acknowledgement
+This Workshop is based in my own work experience and the great work of:
+- https://github.com/jonashackt/crossplane-argocd by @jonashackt
+- https://www.codecentric.de/wissens-hub/blog/full-gitops-with-crossplane-and-argocd
 
 
 
