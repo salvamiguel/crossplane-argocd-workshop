@@ -1,5 +1,5 @@
 # Crossplane + ArgoCD Workshop
-This repostory is meant to be a Workshop on how to create a full GitOps workflow with Crossplane and ArgoCD for begginners. No experience with Docker or Kubernetes (k8s) is needed. 
+This repository is meant to be a Workshop on how to create a full GitOps workflow with Crossplane and ArgoCD for begginners. No experience with Docker or Kubernetes (k8s) is needed. 
 
 ## Table of Contents
 - [Crossplane + ArgoCD Workshop](#crossplane--argocd-workshop)
