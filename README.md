@@ -124,7 +124,7 @@ spec:
     path: infrastructure/default
 ```
 
-If you would like to try the s3 example just change the ``path`` to ``infrastructure/examples/s3`` like this:
+If you would like to try the s3 static webpage example just change the ``path`` to ``infrastructure/examples/s3-static-web`` like this:
 
 ```yaml
 # infrastructure/my-app.yaml
@@ -133,7 +133,7 @@ spec:
   source:
     repoURL: https://github.com/salvamiguel/crossplane-iac-example
     targetRevision: HEAD
-    path: infrastructure/examples/s3
+    path: infrastructure/examples/s3-static-web
 ```
 
 > [!WARNING] 
