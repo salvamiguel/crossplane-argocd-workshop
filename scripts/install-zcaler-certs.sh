@@ -1,0 +1,1 @@
+kubectl -n default create secret generic tls-ca-additional --from-file=../zscaler.pem

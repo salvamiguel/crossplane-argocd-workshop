@@ -1,0 +1,2 @@
+kubectl get ns crossplane-system -o json | jq '.spec.finalizers = []' | kubectl replace --raw "/api/v1/namespaces/crossplane-system/finalize" -f -
+kubectl get ns argocd -o json | jq '.spec.finalizers = []' | kubectl replace --raw "/api/v1/namespaces/argocd/finalize" -f -

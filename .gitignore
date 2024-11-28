@@ -1,3 +1,6 @@
 aws-credentials.txt
 aws-creds.conf
 .DS_Store
+*.pem
+*.cer
+argocd/install/argocd-tls-certs-cm.yaml
