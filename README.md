@@ -82,7 +82,7 @@ Changes in this repository will trigger ArgoCD action to apply new Infrastructur
     ```config
     [default]
     aws_access_key_id = <PASTE HERE YOUR ACCESS KEY ID>
-    aws_secret_access_key = <PASTE HERE YOU SECRET ACCESS KEY>
+    aws_secret_access_key = <PASTE HERE YOUR SECRET ACCESS KEY>
     ```
 7. **Create k8s AWS credentials secret by reruning the script:**
     
